@@ -1,0 +1,30 @@
+# Application layer for application docker containers 
+- !layer first-app
+
+- !host-factory
+    annotations:
+      description: Factory to create new application containers
+    layers: [ !layer first-app ]
+
+# Dedicated servers for docker hosts
+- !host 
+  id: docker-host-1
+
+# Application secrets
+- !variable
+  id: first-app-dbpassword
+  annotations:
+    description: password for database connection
+
+# Dedicated server secrets
+- !variable
+  id: ssh-password
+  annotations:
+    description: password for ssh connection to docker-host-1 
+
+# Grant permissions to layer
+- !permit
+    role: !layer first-app
+    privileges: [execute]
+    resource: !variable first-app-dbpassword
+

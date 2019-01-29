@@ -1,0 +1,25 @@
+- !host
+  id : ansible-controller
+  annotations: 
+      hostname: awx-task
+      ansible: true
+
+- !layer 
+  id: ansible-nodes
+  annotations:
+    ansible: true
+
+- !host 
+  id: node1
+  annotations:
+    ansible: true
+- !host 
+  id: node2
+  annotations:
+    ansible: true
+
+- !grant
+  role: !layer ansible-nodes
+  members:
+    - !host node1
+    - !host node2 

@@ -1,0 +1,32 @@
+- !group 
+  id: beta-prod-team
+  owner: !group /devops-beta-admin
+
+- !user
+  id: igor
+  annotations:
+    team: beta
+
+- !user
+  id: grichka
+  annotations:
+    team: beta
+
+- !grant
+  role: !group beta-prod-team
+  members:
+    - !user igor
+    - !user grichka
+
+- !policy
+  id: jenkins
+  owner: !group beta-prod-team
+
+- !policy
+  id: openshift
+  owner: !group beta-prod-team
+
+- !policy
+  id: second-app
+  owner: !group beta-prod-team
+

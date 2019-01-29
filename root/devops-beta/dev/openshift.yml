@@ -1,0 +1,25 @@
+- !layer 
+  id: authorized-apps
+  annotations:
+    description: Layer of authenticator identities permitted to call authn svc
+    openshift: true
+- &hosts
+  - !host
+    id: second-app/*/*
+    annotations:
+      kubernetes/authentication-container-name: authenticator
+      openshift: "true"
+  - !host
+    id: second-app/service_account/insults-app
+    annotations:
+      kubernetes/authentication-container-name: authenticator
+      openshift: "true"
+  - !host
+    id: second-app/deployment_config/insults-app-conjur
+    annotations:
+      kubernetes/authentication-container-name: authenticator
+      openshift: "true"
+
+- !grant
+  role: !layer authorized-apps
+  members: *hosts

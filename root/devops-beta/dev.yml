@@ -1,0 +1,36 @@
+- !group
+  id: beta-dev-team
+  owner: !group /devops-beta-admin
+
+- !user
+  id: wallace
+  annotations:
+    team: beta
+
+- !user
+  id: gromit
+  annotations:
+    team: beta
+
+- !grant
+  role: !group beta-dev-team
+  members:
+    - !user wallace
+    - !user gromit
+
+- !policy
+  id: jenkins
+  owner: !group beta-dev-team
+
+- !policy
+  id: openshift
+  owner: !group beta-dev-team
+
+- !policy
+  id: terraform
+  owner: !group beta-dev-team
+
+- !policy
+  id: second-app
+  owner: !group beta-dev-team
+

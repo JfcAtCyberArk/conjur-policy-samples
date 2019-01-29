@@ -1,0 +1,6 @@
+- !policy
+  id: authn-k8s/openshift
+  owner: !group /admin
+  annotations:
+    description: This policy defines an authn-k8s endpoint
+

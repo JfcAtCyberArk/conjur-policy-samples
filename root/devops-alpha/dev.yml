@@ -1,0 +1,35 @@
+- !group 
+  id: alpha-dev-team
+  owner: !group /devops-alpha-admin
+
+- !user
+  id: bob
+  annotations: 
+    team: alpha
+
+- !user 
+  id: alice
+  annotations:
+    team: alpha
+
+- !grant
+  role: !group alpha-dev-team
+  members:
+    - !user bob
+    - !user alice
+
+- !policy
+  id: aws
+  owner: !group alpha-dev-team
+
+- !policy
+  id: jenkins
+  owner: !group alpha-dev-team
+
+- !policy 
+  id: ansible
+  owner: !group alpha-dev-team
+
+- !policy
+  id: first-app
+  owner: !group alpha-dev-team

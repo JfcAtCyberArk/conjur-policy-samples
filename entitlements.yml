@@ -1,0 +1,30 @@
+#Entitlements
+- !grant
+  role: !group devops-alpha-admin
+  member: !group admin
+
+- !grant
+  role: !group devops-beta-admin
+  member: !group admin
+
+
+## Ansible
+# Allows  ansible-controller to retrieve ssh credentials of dedicated application servers
+- !permit
+    role: !host devops-alpha/dev/ansible/ansible-controller
+    privileges: [execute]
+    resource: !variable devops-alpha/dev/first-app/ssh-password
+
+## Openshift 
+# permits a layer of whitelisted authn ids to call authn service
+- !permit
+  resource: !webservice conjur/authn-k8s/openshift
+  privilege: [ read, authenticate, execute ]
+  role: !layer devops-beta/dev/openshift/authorized-apps
+
+# connects authentication identities with application identities
+- !grant
+  role: !layer devops-beta/dev/second-app/second-app
+  members:
+  - !layer devops-beta/dev/openshift/authorized-apps
+

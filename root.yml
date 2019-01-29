@@ -1,0 +1,73 @@
+#Users
+- !user
+  id: jfc
+  annotations:
+    name: Jean-Francois Christophe
+    email: jf.christophe@cyberark.com
+
+- !user
+  id: jam
+  annotations:
+    name: Djamel Bourokba
+    email: djamel.bourokba@cyberark.com
+
+- !user
+  id: alpha.admin
+  annotations:
+    team: alpha
+
+- !user
+  id: beta.admin
+  annotations:
+    team: beta
+
+#Admin group
+- !group admin
+- !permit
+  role: !group admin
+  privileges: [ read, create, update ]
+  resource: !policy root
+
+#Add admin users to admin group
+- !grant
+  role: !group admin
+  members:
+    - !user admin
+    - !user jfc
+    - !user jam
+
+#System policies
+- !policy
+  id: conjur
+  owner: !group admin
+
+#Environment owner groups
+- !group
+  id: devops-alpha-admin
+  owner: !group admin
+
+- !group
+  id: devops-beta-admin
+  owner: !group admin
+
+#Add team admin users to team admin group
+- !grant
+  role: !group devops-alpha-admin
+  members:
+    - !user alpha.admin
+
+- !grant
+  role: !group devops-beta-admin
+  members:
+    - !user beta.admin
+
+#Environment policies
+- !policy
+  id: devops-alpha
+  owner: !group devops-alpha-admin
+
+- !policy
+  id: devops-beta
+  owner: !group devops-beta-admin
+
+

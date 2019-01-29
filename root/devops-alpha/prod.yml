@@ -1,0 +1,37 @@
+- !group 
+  id: alpha-prod-team
+  owner: !group /devops-alpha-admin
+  annotations:
+    editable: true
+
+- !user 
+  id: laurel
+  annotations:
+    team: alpha
+
+- !user 
+  id: hardy
+  annotations:
+    team: alpha
+
+- !grant
+  role: !group alpha-prod-team
+  members:
+    - !user laurel
+    - !user hardy
+
+- !policy
+  id: aws
+  owner: !group alpha-prod-team
+
+- !policy
+  id: jenkins
+  owner: !group alpha-prod-team
+
+- !policy 
+  id: ansible
+  owner: !group alpha-prod-team
+
+- !policy
+  id: first-app
+  owner: !group alpha-prod-team

@@ -1,0 +1,36 @@
+- !host
+  id : jenkins-master
+  annotations:
+      hostname: jenkins-master
+      jenkins: true
+
+- !layer 
+  id: jenkins-slaves
+  annotations:
+    jenkins: true
+
+- !host 
+  id: slave1
+  annotations:
+    jenkins: true
+
+- !host
+  id: slave2
+  annotations:
+    jenkins: true
+
+- !grant
+  role: !layer jenkins-slaves
+  members:
+    - !host slave1
+    - !host slave2
+
+- !variable
+  id: jenkins-secret-example
+  annotations:
+    description: demo secret for jenkins plugin
+
+- !permit
+    role: !host jenkins-master
+    privileges: [read, execute, update]
+    resource: !variable jenkins-secret-example

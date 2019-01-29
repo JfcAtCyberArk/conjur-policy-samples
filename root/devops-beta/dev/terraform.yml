@@ -1,0 +1,8 @@
+- !policy
+  id: secrets
+  owner: !group /devops-beta/dev/beta-dev-team
+
+- !policy
+  id: deployment-A
+  owner: !group /devops-beta/dev/beta-dev-team
+

@@ -1,0 +1,7 @@
+- !policy 
+  id: dev
+  owner: !group /devops-alpha-admin
+
+- !policy
+  id: prod
+  owner: !group /devops-alpha-admin

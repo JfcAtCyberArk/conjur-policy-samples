@@ -1,0 +1,26 @@
+# Application layer for application docker containers
+
+- !layer terraform-servers
+
+- !host
+  id: terraform-server-1
+  annotations: 
+    hostname: terraform-server-1@mydomain.com
+    terraform: true
+
+- !host
+  id: terraform-server-2
+  annotations:
+    hostname: terraform-server-2@mydomain.com
+    terraform: true
+
+- !grant
+  role: !layer terraform-servers
+  members:
+    - !host terraform-server-1
+    - !host terraform-server-2
+
+  
+
+
+

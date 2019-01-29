@@ -1,0 +1,15 @@
+# Application layer for application docker containers
+- !layer second-app
+
+# Application secrets
+- !variable
+  id: second-app-dbpassword
+  annotations:
+    description: password for database connection
+
+# Grant permissions to layer
+- !permit
+    role: !layer second-app
+    privileges: [ read, execute ]
+    resource: !variable second-app-dbpassword
+

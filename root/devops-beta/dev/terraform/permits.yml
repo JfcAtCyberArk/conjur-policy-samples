@@ -1,0 +1,7 @@
+# Grant permissions to layer
+- !permit
+    role: !layer deployment-A/terraform-servers
+    privileges: [ read, execute ]
+    resources:
+      - !variable secrets/aws_access_key
+      - !variable secrets/aws_secret_key

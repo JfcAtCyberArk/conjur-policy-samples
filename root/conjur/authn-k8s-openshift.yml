@@ -1,0 +1,17 @@
+- !webservice
+    annotations:
+      description: authn service for cluster
+
+# CA cert and key for creating client certificates
+- !policy
+  id: ca 
+  body:
+  - !variable
+    id: cert
+    annotations:
+      description: CA cert for Kubernetes Pods.
+  - !variable
+    id: key
+    annotations:
+      description: CA key for Kubernetes Pods.
+
