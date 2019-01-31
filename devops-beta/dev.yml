@@ -31,6 +31,10 @@
   owner: !group beta-dev-team
 
 - !policy
+  id: puppet
+  owner: !group beta-dev-team
+
+- !policy
   id: second-app
   owner: !group beta-dev-team
 

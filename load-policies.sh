@@ -22,6 +22,7 @@ conjur policy load devops-beta/prod devops-beta/prod.yml
 conjur policy load devops-alpha/dev/jenkins devops-alpha/dev/jenkins.yml
 conjur policy load devops-alpha/dev/ansible devops-alpha/dev/ansible.yml
 conjur policy load devops-alpha/dev/first-app devops-alpha/dev/first-app.yml
+conjur policy load devops-alpha/dev/github devops-alpha/dev/github.yml
 
 #conjur policy load devops-alpha/prod/aws devops-alpha/prod/aws.yml
 #conjur policy load devops-alpha/prod/jenkins devops-alpha/prod/jenkins.yml
@@ -35,6 +36,7 @@ conjur policy load devops-beta/dev/terraform devops-beta/dev/terraform.yml
 conjur policy load devops-beta/dev/terraform/secrets devops-beta/dev/terraform/secrets.yml
 conjur policy load devops-beta/dev/terraform/deployment-A devops-beta/dev/terraform/deployment-A.yml
 conjur policy load devops-beta/dev/terraform devops-beta/dev/terraform/permits.yml
+conjur policy load devops-beta/dev/puppet devops-beta/dev/puppet.yml
 conjur policy load devops-beta/dev/second-app devops-beta/dev/second-app.yml 
 
 #conjur policy load devops-beta/prod/openshift devops-beta/prod/openshift.yml

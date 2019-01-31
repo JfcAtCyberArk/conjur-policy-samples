@@ -1,0 +1,23 @@
+- !layer
+  id: puppet-nodes
+  annotations:
+    puppet: true
+
+- !host-factory
+  annotations:
+    description: factory to create identities for new Puppet app nodes
+  layers: [ !layer puppet-nodes ]
+
+- !variable
+  id: artifactory-login
+
+- !variable
+  id: artifactory-api-key
+
+- !permit
+  role: !layer puppet-nodes
+  privileges: [execute]
+  resources:
+    - !variable artifactory-login
+    - !variable artifactory-api-key
+

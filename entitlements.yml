@@ -15,6 +15,13 @@
     privileges: [execute]
     resource: !variable devops-alpha/dev/first-app/ssh-password
 
+## Jenkins
+# Allow jenkins-master to retrieve github password for fetching projects
+- !permit
+  role: !host devops-alpha/dev/jenkins/jenkins-master
+  privileges: [execute]
+  resource: !variable devops-alpha/dev/github/github-password
+
 ## Openshift 
 # permits a layer of whitelisted authn ids to call authn service
 - !permit

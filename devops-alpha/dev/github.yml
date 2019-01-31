@@ -1,0 +1,5 @@
+- !variable
+  id: github-password
+  kind: password
+  annotations:
+    description: password for JfcAtCyberark GitHub account

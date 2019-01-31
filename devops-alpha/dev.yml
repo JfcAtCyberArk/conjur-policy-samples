@@ -33,3 +33,8 @@
 - !policy
   id: first-app
   owner: !group alpha-dev-team
+
+- !policy
+  id: github
+  owner: !group alpha-dev-team
+
